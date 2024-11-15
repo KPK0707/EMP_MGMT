@@ -79,15 +79,13 @@ class EmployeeSerializer(serializers.ModelSerializer):
         emp.save()
         return emp
     
-    def update(self, data):
+    def update(self, instance, data):
         print(data)
-        employee=Employee.objects.get(id=self.instance.id)
+        employee=Employee.objects.get(id=instance.id)
         employee.name=data.get('name', employee.name)
         employee.email=data.get('email', employee.email)
-        employee.age=data.get('age', employee.age)
         employee.department=data.get('department', employee.department)
-        employee.salary=data.get('salary', employee.salary)
-
+        
         employee.save()
 
         return employee

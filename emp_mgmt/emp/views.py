@@ -8,6 +8,7 @@ from .serializers import EmployeeSerializer
 from rest_framework.pagination import PageNumberPagination
 
 
+
 @authentication_classes(['IsAuthenticated'])
 @api_view(['POST'])
 def create_employee(request):
@@ -24,6 +25,15 @@ def create_employee(request):
 def get_employees(request):
         
         employees =Employee.objects.all()
+        department = request.query_params.get('department')
+        role = request.query_params.get('role')
+        
+        if department:
+             employees= employees.filter(department=department)
+        
+        if role:
+             employees = employees.filter(role = role)
+    
         if employees:
             paginator=PageNumberPagination()
             paginator.page_size = 10
