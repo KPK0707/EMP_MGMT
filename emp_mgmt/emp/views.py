@@ -12,6 +12,10 @@ from rest_framework.pagination import PageNumberPagination
 @authentication_classes(['IsAuthenticated'])
 @api_view(['POST'])
 def create_employee(request):
+        
+        """Creates a new employee by using POST method and 
+        accepts only user who are authenticated in application
+        """
 
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
@@ -23,6 +27,13 @@ def create_employee(request):
 @authentication_classes(['IsAuthenticated'])
 @api_view(['GET'])   
 def get_employees(request):
+        """
+        Gets list of employees by using GET method and accepts only user who are authenticated in application.
+        It also allows filtering employees based on department and role.
+        
+        1. Returns list of employees
+        2. Filters employees based on department and role if provided in query parameters
+        """
         
         employees =Employee.objects.all()
         department = request.query_params.get('department')
