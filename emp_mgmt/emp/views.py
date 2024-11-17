@@ -82,3 +82,6 @@ def employee_info(request,pk):
 
         # Create your views here.
     
+
+
+    "Hi This is a  test"
