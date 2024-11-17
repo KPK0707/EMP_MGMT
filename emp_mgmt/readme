@@ -1,0 +1,22 @@
+
+Step 1: Create a Django Project by using django-admin startproject project_Name
+
+Step 2: Create a Django app by using python manage.py startapp appname
+
+Step 3: configure app name in settings.py file under installation apps
+
+Step 4: In app define models and establish a connection between these models
+
+Step5: Create a migration file by using python manage.py makemigrations
+
+Step 6: Migration file consisits of schemas and dependencies to create a databse
+
+Step 7: Then migrate the migration file which was created
+
+step 8: In views write code to create API's
+
+Step 9: Create url's for each view and provide url's in urls.py file
+
+Step 10: Then Run Server by using python manage.py runserver
+
+
