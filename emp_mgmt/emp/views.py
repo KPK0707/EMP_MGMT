@@ -46,8 +46,8 @@ def get_employees(request):
              employees = employees.filter(role = role)
     
         if employees:
-            paginator=PageNumberPagination()
-            paginator.page_size = 10
+            paginator=PageNumberPagination() # Pagintor is initialized
+            paginator.page_size = 10 # page size id configured to 10
             paginated_employees=paginator.paginate_queryset(employees,request)
             serializer=EmployeeSerializer(paginated_employees, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
